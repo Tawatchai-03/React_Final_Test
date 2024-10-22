@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { Container, Box, Card, CardContent, Button, IconButton } from '@mui/material';
 import { PhotoLibrary } from '@mui/icons-material'; // ไอคอนรูปภาพ
+import { useNavigate } from 'react-router-dom'; // นำเข้า useNavigate จาก react-router-dom
 import webbg from './image/webbg.png'; // นำเข้าภาพพื้นหลัง
 import starImage from './image/star.png'; // นำเข้าภาพ star
 
 export default function Minipage() {
   const [imagePreviewUrl, setImagePreviewUrl] = useState(null); // สถานะเพื่อเก็บ URL ของภาพที่อัปโหลด
+  const navigate = useNavigate(); // ใช้ useNavigate เพื่อเปลี่ยนหน้า
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
@@ -15,6 +17,10 @@ export default function Minipage() {
       setImagePreviewUrl(reader.result); // เก็บ URL ของภาพที่อัปโหลด
     };
     reader.readAsDataURL(file);
+  };
+
+  const handlePredict = () => {
+    navigate('/next1', { state: { image: imagePreviewUrl } }); // ส่งข้อมูลรูปภาพไปยังหน้า Next1
   };
 
   return (
@@ -85,6 +91,7 @@ export default function Minipage() {
                   color: '#000', // สีตัวอักษร
                   border: '1px solid #000', // กรอบสีดำ
                 }}
+                onClick={handlePredict} // เรียกใช้ฟังก์ชัน handlePredict เมื่อคลิกปุ่ม
               >
                 ทำนาย
               </Button>
