@@ -71,22 +71,24 @@ export default function Minipage() {
               </CardContent>
             </Card>
 
-            {/* ปุ่มอัปโหลด */}
-            <Button
-              variant="contained"
-              color="secondary"
-              sx={{
-                width: '100%', // ให้ปุ่มกว้างเต็ม
-                fontWeight: 'bold',
-                padding: '10px 20px',
-                borderRadius: '10px', // ขอบมน
-                backgroundColor: '#FEFFDA', // สีพื้นหลังปุ่ม
-                color: '#000', // สีตัวอักษร
-                border: '1px solid #000', // กรอบสีดำ
-              }}
-            >
-              อัปโหลดรูปภาพ
-            </Button>
+            {/* ปุ่มทำนาย */}
+            {imagePreviewUrl && ( // ตรวจสอบว่ามีการเลือกรูปภาพแล้วหรือไม่
+              <Button
+                variant="contained"
+                color="secondary"
+                sx={{
+                  width: '100%', // ให้ปุ่มกว้างเต็ม
+                  fontWeight: 'bold',
+                  padding: '10px 20px',
+                  borderRadius: '10px', // ขอบมน
+                  backgroundColor: '#FEFFDA', // สีพื้นหลังปุ่ม
+                  color: '#000', // สีตัวอักษร
+                  border: '1px solid #000', // กรอบสีดำ
+                }}
+              >
+                ทำนาย
+              </Button>
+            )}
           </Box>
 
           {/* แสดงกรอบรูป star ขวามือกลางๆ */}
@@ -96,8 +98,7 @@ export default function Minipage() {
               height: 'auto', // ใช้ขนาดตามต้นฉบับ
               display: 'flex',
               justifyContent: 'center', // จัดกลางแนวนอน
-              alignItems: 'center', // จัดกลางแนวตั้ง
-              
+              alignItems: 'center',
               overflow: 'hidden', // ไม่ให้แสดงเกินกรอบ
               maxWidth: '600px', // กำหนดขนาดสูงสุด
               maxHeight: '600px', // กำหนดขนาดสูงสุด
