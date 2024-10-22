@@ -41,13 +41,14 @@ export default function CustomPage() {
           <Button
             variant="contained"
             sx={{
-              borderRadius: '16px',
+              borderRadius: '10px',
+              border: '1px solid #000', // เพิ่มกรอบสีดำ
               padding: '10px',
               width: { xs: '100%', sm: '350px' }, // ปรับความกว้างตามขนาดหน้าจอ
               height: '70px',
               fontSize: '16px',
               fontWeight: 'bold',
-              backgroundColor: '#ffefc0',  // สีพื้นหลังปุ่ม
+              backgroundColor: '#FEFFDA',  // สีพื้นหลังปุ่ม
               color: 'black',              // สีข้อความปุ่ม
               textAlign: 'center',         // จัดข้อความให้อยู่ตรงกลาง
               boxShadow: 3,                // เงาของปุ่ม
@@ -61,13 +62,14 @@ export default function CustomPage() {
           <Button
             variant="contained"
             sx={{
-              borderRadius: '16px',
+              borderRadius: '10px',
+              border: '1px solid #000', // เพิ่มกรอบสีดำ
               padding: '10px',
               width: { xs: '100%', sm: '350px' }, // ปรับความกว้างตามขนาดหน้าจอ
               height: '70px',
               fontSize: '16px',
               fontWeight: 'bold',
-              backgroundColor: '#ffefc0',  // สีพื้นหลังปุ่ม
+              backgroundColor: '#FEFFDA',  // สีพื้นหลังปุ่ม
               color: 'black',              // สีข้อความปุ่ม
               textAlign: 'center',         // จัดข้อความให้อยู่ตรงกลาง
               boxShadow: 3,                // เงาของปุ่ม
@@ -83,13 +85,14 @@ export default function CustomPage() {
           <Button
             variant="contained"
             sx={{
-              borderRadius: '16px',
+              borderRadius: '10px',
+              border: '1px solid #000', // เพิ่มกรอบสีดำ
               padding: '10px',
               width: { xs: '100%', sm: '300px' }, // ปรับความกว้างตามขนาดหน้าจอ
               height: '70px',
               fontSize: '16px',
               fontWeight: 'bold',
-              backgroundColor: '#ffefc0',  // สีพื้นหลังปุ่ม
+              backgroundColor: '#FEFFDA',  // สีพื้นหลังปุ่ม
               color: 'black',              // สีข้อความปุ่ม
               textAlign: 'center',         // จัดข้อความให้อยู่ตรงกลาง
               boxShadow: 3,                // เงาของปุ่ม
