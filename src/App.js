@@ -3,6 +3,9 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; // �
 import Header from './components/Header';
 import Mainpage from './components/Mainpage';
 import SignInAdmin from './components/SigninAdmin';
+import Next1 from './components/Next1';
+import NextFace from './components/NextFace';
+import NextAge from './components/NextAge';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 
@@ -27,6 +30,9 @@ export default function App() {
       <Router>
         <Header />
         <Routes>
+          <Route exact path='/Next1' element={<Next1/>}/>
+          <Route exact path='/NextFace' element={<NextFace/>}/>
+          <Route exact path='/NextAge' element={<NextAge/>}/>
           <Route path="/" element={<Mainpage />} /> {/* กำหนดเส้นทางหลัก */}
           <Route path='/SignInAdmin' element={<SignInAdmin />} />
         </Routes>
