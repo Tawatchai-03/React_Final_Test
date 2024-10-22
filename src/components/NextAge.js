@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { useNavigate } from 'react-router-dom'; // นำเข้า useNavigate สำหรับการนำทาง
+import { useNavigate } from 'react-router-dom';
 import { Box, Button, Typography } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import webbg from './image/webbg.png';  // นำเข้าภาพพื้นหลัง
+import webbg from './image/webbg.png';
 
 const defaultTheme = createTheme({
   palette: {
@@ -17,38 +17,47 @@ const defaultTheme = createTheme({
 });
 
 export default function ImageComparisonPage() {
-  const navigate = useNavigate(); // ใช้ useNavigate เพื่อจัดการการนำทาง
+  const navigate = useNavigate();
 
   return (
     <ThemeProvider theme={defaultTheme}>
       <Box
         sx={{
           flexGrow: 1,
-          backgroundImage: `url(${webbg})`,  // ตั้งค่า background image
-          backgroundSize: 'cover',           // ปรับภาพให้ครอบคลุมเต็มพื้นที่
-          backgroundPosition: 'center',      // จัดกึ่งกลางภาพ
-          height: '100vh',                   // ความสูงเต็มหน้าจอ
-          display: 'flex',                   // จัดให้เนื้อหาอยู่กลางจอ
+          backgroundImage: `url(${webbg})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          height: '100vh',
+          display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
-          flexDirection: 'column',           // จัดให้เนื้อหาอยู่ในแนวตั้ง
-          padding: '0 16px',                 // เพิ่ม padding ด้านข้าง
+          flexDirection: 'column',
+          padding: '0 16px',
         }}
       >
         {/* กล่องสำหรับจัดวางรูปภาพ */}
-        <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 4, mb: 4, flexWrap: 'wrap' }}>
+        <Box 
+          sx={{ 
+            display: 'flex', 
+            justifyContent: 'center', 
+            alignItems: 'center', 
+            gap: { xs: 2, md: 4 }, 
+            mb: 4, 
+            flexWrap: 'wrap' 
+          }}
+        >
           {/* รูปภาพคนแรก */}
           <Box
             sx={{
-              width: '300px',
-              height: '400px',
+              width: { xs: '200px', md: '300px' }, // ปรับขนาดรูปภาพตามขนาดหน้าจอ
+              height: { xs: '300px', md: '400px' },
               borderRadius: '16px',
               overflow: 'hidden',
               boxShadow: 3,
             }}
           >
             <img
-              src="/path/to/your/image1.png" // ใช้รูปตามที่กำหนด
+              src="/path/to/your/image1.png"
               alt="person 1"
               style={{
                 width: '100%',
@@ -61,15 +70,15 @@ export default function ImageComparisonPage() {
           {/* รูปภาพคนที่สอง */}
           <Box
             sx={{
-              width: '300px',
-              height: '400px',
+              width: { xs: '200px', md: '300px' }, // ปรับขนาดรูปภาพตามขนาดหน้าจอ
+              height: { xs: '300px', md: '400px' },
               borderRadius: '16px',
               overflow: 'hidden',
               boxShadow: 3,
             }}
           >
             <img
-              src="/path/to/your/image2.png" // ใช้รูปตามที่กำหนด
+              src="/path/to/your/image2.png"
               alt="person 2"
               style={{
                 width: '100%',
@@ -81,8 +90,8 @@ export default function ImageComparisonPage() {
         </Box>
 
         {/* ส่วนที่แสดงอายุ */}
-        <Typography variant="h6" sx={{ mb: 2, fontWeight: 'bold' }}>
-          อายุ: <span style={{ backgroundColor: '#ffefc0', padding: '0 16px', border: '1px solid #000', borderRadius: '10px' }}></span>
+        <Typography variant="h6" sx={{ mb: 2, fontWeight: 'bold', textAlign: 'center' }}>
+          อายุ: <span style={{ backgroundColor: '#ffefc0', padding: '0 16px', border: '1px solid #000', borderRadius: '10px', display: 'inline-block', minWidth: '100px' }}>XX</span>
         </Typography>
 
         {/* ปุ่มย้อนกลับ */}
@@ -92,19 +101,19 @@ export default function ImageComparisonPage() {
             sx={{
               border: '1px solid #000', 
               borderRadius: '10px', 
-              padding: '10px', // ปรับ padding
-              width: '100%', // ปรับความกว้างให้เต็ม
-              maxWidth: '200px', // กำหนดขนาดสูงสุด
+              padding: '10px',
+              width: '100%',
+              maxWidth: { xs: '150px', md: '200px' }, // ปรับขนาดปุ่มตามขนาดหน้าจอ
               height: '50px',
-              fontSize: '18px',
+              fontSize: '16px',
               fontWeight: 'bold',
-              backgroundColor: '#ffefc0',  // สีพื้นหลังปุ่ม
-              color: 'black',              // สีข้อความปุ่ม
+              backgroundColor: '#ffefc0',
+              color: 'black',
               '&:hover': {
-                backgroundColor: '#ffd996', // สีเมื่อ hover
+                backgroundColor: '#ffd996',
               },
             }}
-            onClick={() => navigate(-1)} // ใช้ navigate(-1) เพื่อย้อนกลับไปยังหน้าก่อนหน้า
+            onClick={() => navigate(-1)}
           >
             ย้อนกลับ
           </Button>
