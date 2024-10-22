@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Container, Box, Card, CardContent, Button, IconButton, Typography } from '@mui/material';
+import { Container, Box, Card, CardContent, Button, IconButton } from '@mui/material';
 import { PhotoLibrary } from '@mui/icons-material'; // ไอคอนรูปภาพ
 import webbg from './image/webbg.png'; // นำเข้าภาพพื้นหลัง
 
