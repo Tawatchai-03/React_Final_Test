@@ -1,16 +1,36 @@
-import './App.css';
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; // นำเข้า Router
+import Header from './components/Header';
 import Mainpage from './components/Mainpage';
+import SignInAdmin from './components/SigninAdmin';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 
-function App() {
+
+const defaultTheme = createTheme({
+  palette: {
+    mode: 'light',
+    primary: {
+      main: '#1976d2',
+    },
+    secondary: {
+      main: '#ff4081',
+    },
+  },
+  typography: {
+    fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
+  },
+});
+
+export default function App() {
   return (
-    <Router>
-      <Routes>
-        <Route exact path='/' element={<Mainpage/>}/>
-      </Routes>
-    </Router>
+    <ThemeProvider theme={defaultTheme}>
+      <Router>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Mainpage />} /> {/* กำหนดเส้นทางหลัก */}
+          <Route path='/SignInAdmin' element={<SignInAdmin />} />
+        </Routes>
+      </Router>
+    </ThemeProvider>
   );
 }
-
-export default App;
