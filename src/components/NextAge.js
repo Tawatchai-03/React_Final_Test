@@ -35,12 +35,12 @@ export default function ImageComparisonPage() {
           padding: '0 16px',                 // เพิ่ม padding ด้านข้าง
         }}
       >
-        {/* กล่องสำหรับจัดวางรูปภาพ */}
-        <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 4, mb: 4, flexWrap: 'wrap' }}>
-          {/* รูปภาพคนแรก */}
+        {/* กล่องสำหรับจัดวางรูปภาพ */} 
+        <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', mb: 4 }}>
+          {/* รูปภาพคนเดียว */}
           <Box
             sx={{
-              width: '300px',
+              width: '400px',
               height: '400px',
               borderRadius: '16px',
               overflow: 'hidden',
@@ -49,28 +49,7 @@ export default function ImageComparisonPage() {
           >
             <img
               src="/path/to/your/image1.png" // ใช้รูปตามที่กำหนด
-              alt="person 1"
-              style={{
-                width: '100%',
-                height: '100%',
-                objectFit: 'cover',
-              }}
-            />
-          </Box>
-
-          {/* รูปภาพคนที่สอง */}
-          <Box
-            sx={{
-              width: '300px',
-              height: '400px',
-              borderRadius: '16px',
-              overflow: 'hidden',
-              boxShadow: 3,
-            }}
-          >
-            <img
-              src="/path/to/your/image2.png" // ใช้รูปตามที่กำหนด
-              alt="person 2"
+              alt="person"
               style={{
                 width: '100%',
                 height: '100%',
@@ -80,24 +59,25 @@ export default function ImageComparisonPage() {
           </Box>
         </Box>
 
-        {/* ส่วนที่แสดงอายุ */}
+        {/* ส่วนที่แสดงอายุ */} 
         <Typography variant="h6" sx={{ mb: 2, fontWeight: 'bold' }}>
           อายุ: <span style={{ backgroundColor: '#ffefc0', padding: '0 16px', borderRadius: '8px' }}></span>
         </Typography>
 
-        {/* ปุ่มย้อนกลับ */}
+        {/* ปุ่มย้อนกลับ */} 
         <Box sx={{ mt: 2 }}>
           <Button 
             variant="contained" 
             sx={{ 
-              borderRadius: '16px', 
+              borderRadius: '10px', 
+              border: '1px solid #000', // เพิ่มกรอบสีดำ
               padding: '10px', // ปรับ padding
               width: '100%', // ปรับความกว้างให้เต็ม
               maxWidth: '200px', // กำหนดขนาดสูงสุด
               height: '50px',
               fontSize: '18px',
               fontWeight: 'bold',
-              backgroundColor: '#ffefc0',  // สีพื้นหลังปุ่ม
+              backgroundColor: '#FEFFDA',  // สีพื้นหลังปุ่ม
               color: 'black',              // สีข้อความปุ่ม
               '&:hover': {
                 backgroundColor: '#ffd996', // สีเมื่อ hover
