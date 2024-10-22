@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { useNavigate } from 'react-router-dom'; // นำเข้า useNavigate สำหรับการนำทาง
-import { Box, Button } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
+import { Box, Button, Typography } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import webbg from './image/webbg.png';  // นำเข้าภาพพื้นหลัง
+import webbg from './image/webbg.png';
 
 const defaultTheme = createTheme({
   palette: {
@@ -17,66 +17,95 @@ const defaultTheme = createTheme({
 });
 
 export default function ImageComparisonPage() {
-  const navigate = useNavigate(); // ใช้ useNavigate เพื่อจัดการการนำทาง
+  const navigate = useNavigate();
 
   return (
     <ThemeProvider theme={defaultTheme}>
       <Box
         sx={{
           flexGrow: 1,
-          backgroundImage: `url(${webbg})`,  // ตั้งค่า background image
-          backgroundSize: 'cover',           // ปรับภาพให้ครอบคลุมเต็มพื้นที่
-          backgroundPosition: 'center',      // จัดกึ่งกลางภาพ
-          height: '100vh',                   // ความสูงเต็มหน้าจอ
-          display: 'flex',                   // จัดให้เนื้อหาอยู่กลางจอ
+          backgroundImage: `url(${webbg})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          height: '100vh',
+          display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
-          flexDirection: 'column',           // จัดให้เนื้อหาอยู่ในแนวตั้ง
-          padding: '0 16px',                 // เพิ่ม padding ด้านข้าง
+          flexDirection: 'column',
+          padding: '0 16px',
         }}
       >
-        {/* กล่องสำหรับจัดวางรูปภาพ */}
-        <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 4, mb: 4, flexWrap: 'wrap' }}>
-          {/* รูปภาพคนแรก */}
-          <Box
-            sx={{
-              width: '300px',
-              height: '400px',
-              borderRadius: '16px',
-              overflow: 'hidden',
-              boxShadow: 3,
-            }}
-          >
-            <img
-              src="/path/to/your/image1.png" // ใช้รูปตามที่กำหนด
-              alt="person 1"
-              style={{
-                width: '100%',
-                height: '100%',
-                objectFit: 'cover',
+        {/* กล่องสำหรับชื่อและรูปภาพ */}
+        <Box 
+          sx={{ 
+            display: 'flex', 
+            justifyContent: 'center', 
+            alignItems: 'center', 
+            gap: { xs: 2, md: 4 }, // ปรับระยะห่างให้เข้ากับขนาดหน้าจอ
+            mb: 4, 
+            flexWrap: 'wrap' 
+          }}
+        >
+          {/* ชื่อและรูปภาพคนแรก */}
+          <Box sx={{ textAlign: 'center' }}>
+            <Typography variant="h6" sx={{ mb: 2 }}>
+              คุณ
+            </Typography>
+            <Box
+              sx={{
+                width: { xs: '250px', md: '400px' }, // ปรับขนาดรูปภาพตามขนาดหน้าจอ
+                height: { xs: '250px', md: '400px' },
+                borderRadius: '16px',
+                overflow: 'hidden',
+                boxShadow: 3,
               }}
-            />
+            >
+              <img
+                src="/path/to/your/image1.png"
+                alt="person 1"
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                }}
+              />
+            </Box>
           </Box>
 
-          {/* รูปภาพคนที่สอง */}
-          <Box
-            sx={{
-              width: '300px',
-              height: '400px',
-              borderRadius: '16px',
-              overflow: 'hidden',
-              boxShadow: 3,
-            }}
-          >
-            <img
-              src="/path/to/your/image2.png" // ใช้รูปตามที่กำหนด
-              alt="person 2"
-              style={{
-                width: '100%',
-                height: '100%',
-                objectFit: 'cover',
+          {/* ข้อความความเหมือนที่อยู่ระหว่างรูปภาพ */}
+          <Box sx={{ textAlign: 'center', mx: 2 }}>
+            <Typography variant="h4" sx={{ mb: 1 }}>
+              ความเหมือน
+            </Typography>
+            <Typography variant="h3" sx={{ color: 'red', fontWeight: 'bold' }}>
+              00%
+            </Typography>
+          </Box>
+
+          {/* ชื่อและรูปภาพคนที่สอง */}
+          <Box sx={{ textAlign: 'center' }}>
+            <Typography variant="h6" sx={{ mb: 2 }}>
+              รูปดารา
+            </Typography>
+            <Box
+              sx={{
+                width: { xs: '250px', md: '400px' }, // ปรับขนาดรูปภาพตามขนาดหน้าจอ
+                height: { xs: '250px', md: '400px' },
+                borderRadius: '16px',
+                overflow: 'hidden',
+                boxShadow: 3,
               }}
-            />
+            >
+              <img
+                src="/path/to/your/image2.png"
+                alt="person 2"
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                }}
+              />
+            </Box>
           </Box>
         </Box>
 
@@ -84,21 +113,22 @@ export default function ImageComparisonPage() {
         <Box sx={{ mt: 2 }}>
           <Button 
             variant="contained" 
-            sx={{ 
+            sx={{
+              border: '1px solid #000', 
               borderRadius: '16px', 
-              padding: '10px', // ปรับ padding
-              width: '100%', // ปรับความกว้างให้เต็ม
-              maxWidth: '200px', // กำหนดขนาดสูงสุด
+              padding: '10px',
+              width: '100%',
+              maxWidth: { xs: '150px', md: '200px' }, // ปรับขนาดปุ่มตามขนาดหน้าจอ
               height: '50px',
-              fontSize: '18px',
+              fontSize: '16px',
               fontWeight: 'bold',
-              backgroundColor: '#ffefc0',  // สีพื้นหลังปุ่ม
-              color: 'black',              // สีข้อความปุ่ม
+              backgroundColor: '#FEFFDA',
+              color: 'black',
               '&:hover': {
-                backgroundColor: '#ffd996', // สีเมื่อ hover
+                backgroundColor: '#ffd996',
               },
             }}
-            onClick={() => navigate(-1)} // ใช้ navigate(-1) เพื่อย้อนกลับไปยังหน้าก่อนหน้า
+            onClick={() => navigate(-1)}
           >
             ย้อนกลับ
           </Button>
