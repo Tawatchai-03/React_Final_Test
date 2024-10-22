@@ -35,77 +35,37 @@ export default function ImageComparisonPage() {
           padding: '0 16px',
         }}
       >
-        {/* กล่องสำหรับชื่อและรูปภาพ */}
+        {/* กล่องสำหรับชื่อ */}
         <Box 
           sx={{ 
             display: 'flex', 
-            justifyContent: 'center', 
+            justifyContent: 'space-between', 
             alignItems: 'center', 
-            gap: { xs: 2, md: 4 }, // ปรับระยะห่างให้เข้ากับขนาดหน้าจอ
-            mb: 4, 
-            flexWrap: 'wrap' 
+            width: '100%',
+            maxWidth: '1000px', // จำกัดขนาดความกว้างสูงสุด
+            mb: 4,
+            padding: '0 20px',
           }}
         >
-          {/* ชื่อและรูปภาพคนแรก */}
-          <Box sx={{ textAlign: 'center' }}>
-            <Typography variant="h6" sx={{ mb: 2 }}>
+          {/* ชื่อคนแรกอยู่ซ้าย */}
+          <Box sx={{ textAlign: 'center', flex: 1 }}>
+            <Typography variant="h4" sx={{ mb: 2 }}>
               คุณ
             </Typography>
-            <Box
-              sx={{
-                width: { xs: '250px', md: '400px' }, // ปรับขนาดรูปภาพตามขนาดหน้าจอ
-                height: { xs: '250px', md: '400px' },
-                borderRadius: '16px',
-                overflow: 'hidden',
-                boxShadow: 3,
-              }}
-            >
-              <img
-                src="/path/to/your/image1.png"
-                alt="person 1"
-                style={{
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'cover',
-                }}
-              />
-            </Box>
           </Box>
 
-          {/* ข้อความความเหมือนที่อยู่ระหว่างรูปภาพ */}
-          <Box sx={{ textAlign: 'center', mx: 2 }}>
+          {/* ข้อความความเหมือนอยู่ตรงกลาง */}
+          <Box sx={{ textAlign: 'center', flex: 1 }}>
             <Typography variant="h4" sx={{ mb: 1 }}>
               ความเหมือน
             </Typography>
-            <Typography variant="h3" sx={{ color: 'red', fontWeight: 'bold' }}>
-              00%
+            <Typography variant="h3" sx={{ color: '#ff4081', fontWeight: 'bold' }}>
+              80%
             </Typography>
           </Box>
 
-          {/* ชื่อและรูปภาพคนที่สอง */}
-          <Box sx={{ textAlign: 'center' }}>
-            <Typography variant="h6" sx={{ mb: 2 }}>
-              รูปดารา
-            </Typography>
-            <Box
-              sx={{
-                width: { xs: '250px', md: '400px' }, // ปรับขนาดรูปภาพตามขนาดหน้าจอ
-                height: { xs: '250px', md: '400px' },
-                borderRadius: '16px',
-                overflow: 'hidden',
-                boxShadow: 3,
-              }}
-            >
-              <img
-                src="/path/to/your/image2.png"
-                alt="person 2"
-                style={{
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'cover',
-                }}
-              />
-            </Box>
+          {/* ชื่อดาราอยู่ทางขวา */}
+          <Box sx={{ textAlign: 'center', flex: 1 }}>
           </Box>
         </Box>
 
@@ -118,7 +78,7 @@ export default function ImageComparisonPage() {
               borderRadius: '16px', 
               padding: '10px',
               width: '100%',
-              maxWidth: { xs: '150px', md: '200px' }, // ปรับขนาดปุ่มตามขนาดหน้าจอ
+              maxWidth: { xs: '150px', md: '200px' }, 
               height: '50px',
               fontSize: '16px',
               fontWeight: 'bold',
