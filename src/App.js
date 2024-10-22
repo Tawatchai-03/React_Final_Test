@@ -2,10 +2,12 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; // นำเข้า Router
 import Header from './components/Header';
 import Mainpage from './components/Mainpage';
-import SignInAdmin from './components/SigninAdmin';
+import SignInAdmin from './components/SignInAdmin';
+import Dashboard from './components/Dashboard';
 import Next1 from './components/Next1';
 import NextFace from './components/NextFace';
 import NextAge from './components/NextAge';
+
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 
@@ -30,11 +32,13 @@ export default function App() {
       <Router>
         <Header />
         <Routes>
+          <Route path="/" element={<Navigate to="/mainpage" />} /> 
+          <Route exact path='/mainpage' element={<Mainpage />} />
+          <Route exact path='/SignInAdmin' element={<SignInAdmin />} />
+          <Route exact path='/dashboard' element={<Dashboard />} />
           <Route exact path='/Next1' element={<Next1/>}/>
           <Route exact path='/NextFace' element={<NextFace/>}/>
           <Route exact path='/NextAge' element={<NextAge/>}/>
-          <Route path="/" element={<Mainpage />} /> {/* กำหนดเส้นทางหลัก */}
-          <Route path='/SignInAdmin' element={<SignInAdmin />} />
         </Routes>
       </Router>
     </ThemeProvider>
