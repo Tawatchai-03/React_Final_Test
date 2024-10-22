@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { Container, Box, Card, CardContent, Button, IconButton, Typography } from '@mui/material';
+import { Container, Box, Card, CardContent, Button, IconButton } from '@mui/material';
 import { PhotoLibrary } from '@mui/icons-material'; // ไอคอนรูปภาพ
 import webbg from './image/webbg.png'; // นำเข้าภาพพื้นหลัง
+import starImage from './image/star.png'; // นำเข้าภาพ star
 
 export default function Minipage() {
   const [imagePreviewUrl, setImagePreviewUrl] = useState(null); // สถานะเพื่อเก็บ URL ของภาพที่อัปโหลด
@@ -36,8 +37,8 @@ export default function Minipage() {
           <Box display="flex" flexDirection="column" alignItems="flex-start" sx={{ marginRight: 4 }}>
             <Card
               sx={{
-                width: 200,
-                height: 200,
+                width: 350,
+                height: 350,
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
@@ -78,14 +79,31 @@ export default function Minipage() {
                 width: '100%', // ให้ปุ่มกว้างเต็ม
                 fontWeight: 'bold',
                 padding: '10px 20px',
-                borderRadius: '20px', // ขอบมน
-                backgroundColor: '#f7ddbe', // สีพื้นหลังปุ่ม
+                borderRadius: '10px', // ขอบมน
+                backgroundColor: '#FEFFDA', // สีพื้นหลังปุ่ม
                 color: '#000', // สีตัวอักษร
-                border: '2px solid #000', // กรอบสีดำ
+                border: '1px solid #000', // กรอบสีดำ
               }}
             >
               อัปโหลดรูปภาพ
             </Button>
+          </Box>
+
+          {/* แสดงกรอบรูป star ขวามือกลางๆ */}
+          <Box
+            sx={{
+              width: 'auto', // ใช้ขนาดตามต้นฉบับ
+              height: 'auto', // ใช้ขนาดตามต้นฉบับ
+              display: 'flex',
+              justifyContent: 'center', // จัดกลางแนวนอน
+              alignItems: 'center', // จัดกลางแนวตั้ง
+              
+              overflow: 'hidden', // ไม่ให้แสดงเกินกรอบ
+              maxWidth: '600px', // กำหนดขนาดสูงสุด
+              maxHeight: '600px', // กำหนดขนาดสูงสุด
+            }}
+          >
+            <img src={starImage} alt="Star" style={{ width: '100%', height: '100%', objectFit: 'contain' }} /> {/* กรอบรูป star */}
           </Box>
         </Box>
       </Container>
