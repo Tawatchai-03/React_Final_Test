@@ -75,7 +75,7 @@ export default function ImageComparisonPage() {
             variant="contained" 
             sx={{
               border: '1px solid #000', 
-              borderRadius: '16px', 
+              borderRadius: '10px', 
               padding: '10px',
               width: '100%',
               maxWidth: { xs: '150px', md: '200px' }, 
